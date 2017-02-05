@@ -43,4 +43,11 @@ class ConsumerController extends Controller
     return redirect()->back();
 
   }
+
+  public function destroy($id){
+    $consumer = Consumer::find($id);
+    $consumer->delete();
+
+    return redirect()->back();
+  }
 }
