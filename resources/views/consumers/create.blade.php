@@ -5,43 +5,52 @@
     <div class="box-body">
     
   <div class="col-sm-4">
-  {!! Form::model($consumer, ['class'=>'form-horizontal','action' => 'ConsumerController@store']) !!}
+    @if( isset($consumer) )
+      {!! Form::model($consumer, ['route' => ['consumer.update', $consumer->id], 'method' => 'PUT']) !!}
+      echo "banana";
+    @else
+      {!! Form::open(['route' => 'consumer.store']) !!}
+    @endif
 
     <div class="form-group">
       {!! Form::label('name', 'Name') !!}
-      {!! Form::text('name', '', ['class' => 'form-control']) !!}
+      {!! Form::text('name', Input::old('fieldname1'), ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('address', 'Adress') !!}
-      {!! Form::text('address', '', ['class' => 'form-control']) !!}
+      {!! Form::text('address',  Input::old('fieldname1'),['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('city', 'City') !!}
-      {!! Form::text('city', '', ['class' => 'form-control']) !!}
+      {!! Form::text('city',  Input::old('fieldname1'), ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
       {!! Form::label('state', 'State') !!}
-      {!! Form::text('state', '', ['class' => 'form-control']) !!}
+      {!! Form::text('state',  Input::old('fieldname1'), ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('phone', 'Phone') !!}
-      {!! Form::text('phone', '', ['class' => 'form-control']) !!}
+      {!! Form::text('phone',  Input::old('fieldname1'), ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('email', 'Email') !!}
-      {!! Form::email('email', '',['class' => 'form-control']) !!}
+      {!! Form::email('email',  Input::old('fieldname1'),['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('gender', 'Gender') !!}
+      
+      {!! Form::label('gender', 'Male') !!}
+      {!! Form::radio('gender', 'M', ['class' => 'form-control']) !!}
+      {!! Form::label('gender', 'Female') !!}
       {!! Form::radio('gender', 'F', ['class' => 'form-control']) !!}
     </div>
 
-    <button class="btn btn-success" type="submit">Create</button>
+     {{ Form::submit('Save', ['name' => 'submit']) }}
 
   {!! Form::close() !!}  
 

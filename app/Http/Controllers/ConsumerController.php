@@ -16,8 +16,8 @@ class ConsumerController extends Controller
   
   public function create()
   {
-    $consumer = new Consumer;
-    return view('consumers/create')->with('consumer', $consumer);
+    //$consumer = new Consumer;
+    return view('consumers/create');//->with('consumer', $consumer);
   }
 
   public function store(Request $request)
@@ -26,5 +26,21 @@ class ConsumerController extends Controller
     Consumer::create($input);
 
     return redirect()->back();
+  }
+
+  public function edit($id){
+   $consumer = Consumer::find($id);
+   return view('consumers/create')->with('consumer', $consumer);
+  }
+
+  public function update($id, Request $request){
+    $consumer = Consumer::find($id);
+    $input = $request->all();
+
+    $consumer->fill($input)->save();
+
+
+    return redirect()->back();
+
   }
 }
