@@ -1,0 +1,20 @@
+{
+  "name": "crm",
+  "authors": [
+    "cecep wandy <wandy.irawan17@gmail.com>"
+  ],
+  "description": "app test laravel",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AdminLTE": "admin-lte#^2.3.11"
+  }
+}
