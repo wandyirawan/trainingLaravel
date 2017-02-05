@@ -1,9 +1,9 @@
-to run clone this repository
+to run clone this repository:
 
-copy .env.example to .evn
+  copy .env.example to .evn
 
-settup your db
+  settup your db
 
-run php artisan mirgate
+  run php artisan mirgate
 
-then run php serve
+  then run php serve
